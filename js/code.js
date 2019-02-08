@@ -6,3 +6,8 @@ function addQuestionItem() {
 
 	document.getElementById("QCForm").appendChild(listQCM)
 }
+
+let coucou = function hello() {
+	alert("coucou");
+
+}
