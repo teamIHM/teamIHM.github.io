@@ -4,7 +4,7 @@ function addQuestionItem() {
 	listQCM.innerHTML = input.value;
 	input.value = "";
 
-	document.getElementById("QCForm").appendChild(listQCM);
+	document.getElementById("QCMForm").appendChild(listQCM);
 }
 
 let coucou = function hello() {
