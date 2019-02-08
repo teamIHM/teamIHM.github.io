@@ -1,3 +1,8 @@
 function addQuestion() {
-	let doc = document.getElementById('QCMForm');
+	let listQCM = document.getElementById("QCMForm");
+	let input = document.getElementById("questionText");
+	listQCM.innerHTML = input.value;
+	input.value = "";
+
+	document.getElementById("QCForm").appendChild(listQCM)
 }
