@@ -1,10 +1,10 @@
 function addQuestionItem() {
-	let listQCM = document.getElementById("QCMForm");
+	let listQCM = document.createElement("P");
 	let input = document.getElementById("questionText");
 	listQCM.innerHTML = input.value;
 	input.value = "";
 
-	document.getElementById("QCForm").appendChild(listQCM)
+	document.getElementById("QCMForm").appendChild(listQCM);
 }
 
 let coucou = function hello() {
