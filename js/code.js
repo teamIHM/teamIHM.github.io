@@ -1,4 +1,4 @@
-function addQuestion() {
+function addQuestionItem() {
 	let listQCM = document.getElementById("QCMForm");
 	let input = document.getElementById("questionText");
 	listQCM.innerHTML = input.value;
