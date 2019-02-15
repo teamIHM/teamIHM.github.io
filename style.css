@@ -1,6 +1,9 @@
-body {
+* {
 	background-color: rgba(0,0,0, 0.1);
-	font-family: MS Georgia;
+}
+
+body {
+	font-family: "MS Georgia";
     background-image: url("img/background.jpg");
 }
 
@@ -10,7 +13,7 @@ header {
 	box-shadow: 0rem 0.5rem 1rem #1a74ff;
 	box-sizing: content-box;
 	width: 100%;
-	height: 7rem;
+	min-height: 7rem;
 	color: #1a74ff;
 	font-family: Impact, Georgia;
 	font-size: 1.7rem;
@@ -40,7 +43,7 @@ nav {
 	height: 4rem;
 	text-align: center;
 	font-size: 1.7rem;
-	margin: 0;
+	/*margin: 0;*/
 }
 
 nav a {
@@ -48,6 +51,9 @@ nav a {
 	color: white;
 	font-weight: bold;
 	text-decoration:none;
+}
+main {
+	height: 10rem;
 }
 footer a {
 	cursor:pointer;
