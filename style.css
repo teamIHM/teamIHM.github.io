@@ -53,7 +53,7 @@ nav a {
 	text-decoration:none;
 }
 main {
-	height: 10rem;
+	min-height: 10rem;
 }
 footer a {
 	cursor:pointer;
