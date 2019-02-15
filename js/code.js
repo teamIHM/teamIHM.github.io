@@ -17,7 +17,7 @@ function addQuestionItem() {
 		divQuestion.id = trid(input.value.trim().split(' ').join('_'));
 		divQuestion.innerHTML = "<p>" + htmlEntities(input.value) + "<p>";
 		divQuestion.innerHTML += "<ul id=\"list"+trid(input.value.trim().split(' ').join('_'))+"\"></ul>";
-		divQuestion.innerHTML += "<button id=\"addChoice_"+trid(input.value.trim().split(' ').join('_'))+"\" onclick=\"addChoice("+divQuestion.id+")\"/>Ajouter une proposition</button>";
+		divQuestion.innerHTML += "<button class=\"btn\" id=\"addChoice_"+trid(input.value.trim().split(' ').join('_'))+"\" onclick=\"addChoice("+divQuestion.id+")\"/>Ajouter une proposition</button>";
 		divQuestion.innerHTML += "<input type=\"text\" id=\"text"+trid(input.value.trim().split(' ').join('_'))+"\"/>";
 		input.value = "";
 		document.getElementById("QCMForm").append(divQuestion);
