@@ -17,24 +17,26 @@
     </head>
 
     <body class="container">
-    	<header class="row">
-    	<div class="col-2">
-    		<img src="img/logo.jpg" alt="Logo du site" class="rounded-circle">
-    	</div>
-    		<h1>Le questionnaire de LIFIHM</h1>
+    	<header>
+    		<div class="row">
+				<div class="col-2">
+					<img src="img/logo.jpg" alt="Logo du site" class="rounded-circle img-fluid">
+				</div>
+				<h1>Le questionnaire de LIFIHM</h1>
+			</div>
     		
-		    <nav>
+		    <nav class="row">
 		    	<a href="index.html">Accueil</a>
 		    	<a href="">Rien pour le moment</a>
 		    </nav>
         </header>
         
-        <main>
+        <main class="row">
 
-	    <div id="QCMForm">
-	    </div>
-	<input type="text" id="questionText"/>
-	<input class="btn" type="button" id="addQuestion" value="Ajouter une Question" onclick="addQuestionItem()"/>	
+			<div id="QCMForm">
+			</div>
+			<input type="text" id="questionText"/>
+			<input class="btn" type="button" id="addQuestion" value="Ajouter une Question" onclick="addQuestionItem()"/>
 
         </main>
         

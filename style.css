@@ -1,5 +1,6 @@
 body {
-	font-family: Georgia;
+	background-color: rgba(0,0,0, 0.1);
+	font-family: MS Georgia;
     background-image: url("img/background.jpg");
 }
 
