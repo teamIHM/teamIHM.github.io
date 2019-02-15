@@ -60,3 +60,8 @@ a:active {
 	top: 0.1rem;
 	left: 0.1rem;
 }
+
+.center {
+	margin:auto;
+	float: none;
+}
