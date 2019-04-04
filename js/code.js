@@ -25,14 +25,16 @@ function removeAnswer(id) {
 }
 
 function createClickableDeleteAnswer(id) {
-	let button = document.createElement("span");
+	let button = document.createElement("div");
+	button.className="float-right";
 	button.innerHTML = "[Supprimer la réponse]";
 	button.onclick = function() {removeAnswer(id)};
 	return button;
 }
 
 function createClickableDeleteQuestion(id) {
-	let button = document.createElement("p");
+	let button = document.createElement("div");
+	button.className="float-right";
 	button.innerHTML = "[Supprimer la question]";
 	button.onclick = function() {removeQuestion(id)};
 	return button;
@@ -68,6 +70,7 @@ function createQuestionDiv() {
 
 function createAnswerList(id) {
 	let answerList = document.createElement("ul");
+	answerList.className="p-3";
 	answerList.id = "answers_" + id;
 	return answerList;
 }
@@ -82,7 +85,7 @@ function createAnswerInput(id) {
 function createAnswerButton(id) {
 	let button = document.createElement("input");
 	button.type="button";
-	button.className = "answer_button";
+	button.className = "answer_button btn btn-success";
 	button.value = "Ajouter une réponse";
 	button.id = "input_" + id;
 	button.onclick = function() {userAddAnswer(id)};
@@ -119,12 +122,15 @@ function createAnswerElement(id, text) {
 	return listElem;
 }
 
-function addQuestion(text) {
-	let container = document.getElementById("QCMForm");
-	let questionDiv = createQuestionDiv();
+function createTitle(id, text) {
+	let global = document.createElement("div");
+	global.className = "container p-2 pb-5";
+
 	let questionTitle = document.createElement("h3");
-	questionTitle.id = "titre_"+questionDiv.id
+	questionTitle.id = "titre_"+id;
+	questionTitle.className = "col-1-push-x";
 	questionTitle.innerHTML = text;
+
 
 	questionTitle.addEventListener("click", function() {
 		modifyElement(questionTitle.id);
@@ -134,10 +140,20 @@ function addQuestion(text) {
 			modifiedElement(questionTitle.id);
 		}
 	});
+	let deleter = createClickableDeleteQuestion(id);
+
+	global.appendChild(questionTitle);
+	global.appendChild(deleter);
+	return global;
+}
+
+function addQuestion(text) {
+	let container = document.getElementById("QCMForm");
+	let questionDiv = createQuestionDiv();
+
+	let questionTitle = createTitle(questionDiv.id, text);
 	questionDiv.appendChild(questionTitle);
 
-	let deleter = createClickableDeleteQuestion(questionDiv.id);
-	questionDiv.appendChild(deleter);
 
 	let list = createAnswerList(questionDiv.id);
 	questionDiv.appendChild(list);
@@ -152,6 +168,7 @@ function addQuestion(text) {
 	questionDiv.appendChild(error);
 
 	container.appendChild(questionDiv);
+	return questionDiv.id;
 }
 
 function changeError(parents, text) {
@@ -173,4 +190,24 @@ function addAnswer(id, text) {
 	let deleter = createClickableDeleteAnswer(input.id);
 	input.appendChild(deleter);
 	container.appendChild(input);
+}
+
+function init() {
+	let q1 = addQuestion("Quel était le nom du fils aîné de Bob Marley ?");
+	addAnswer(q1, "Stephen");
+	addAnswer(q1, "David");
+	addAnswer(q1, "Robert");
+	addAnswer(q1, "Damian");
+
+	let q2 = addQuestion("Quels étaient les vrais prénoms de Bob Marley ?");
+	addAnswer(q2, "Robert");
+	addAnswer(q2, "Robert Nestor");
+	addAnswer(q2, "Robert Nesta");
+	
+	let q3 = addQuestion("En quelle année Bob Marley est-il décédé ?");
+	addAnswer(q3, "1979");
+	addAnswer(q3, "1981");
+	addAnswer(q3, "1985");
+	addAnswer(q3, "1989");
+	addAnswer(q3, "1991");
 }
