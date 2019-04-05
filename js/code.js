@@ -1,6 +1,5 @@
 function userAddQuestion() {
 	let question = document.getElementById("questionText");
-	question.setAttribute("autocomplete", "Ecrivez votre question ici");
 	if(question.value) {
 		changeError(question, "");
 		addQuestion(question.value);
@@ -78,7 +77,8 @@ function createAnswerList(id) {
 
 function createAnswerInput(id) {
 	let answerInput = document.createElement("input");
-	answerInput.setAttribute("autocomplete", "Ecrivez votre proposition ici");
+	answerInput.type = "text";
+	answerInput.setAttribute("placeholder", "Ecrivez votre proposition ici");
 	answerInput.id = "answerInput_" + id;
 	createErrorField(answerInput, "");
 	return answerInput;
