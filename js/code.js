@@ -105,7 +105,7 @@ function createCollapseButton(id) {
 
 function createCollapseDiv(id) {
 	let container = document.createElement("div");
-	container.className = "collapse_div";
+	container.className = "collapse collapse_div";
 	container.id = "collapse_div_" + id;
 	return container;
 }
@@ -148,7 +148,10 @@ function createTitle(id, text) {
 	questionTitle.id = "titre_"+id;
 	questionTitle.className = "col-1-push-x";
 	questionTitle.innerHTML = text;
-
+	questionTitle.setAttribute("data-toggle", "tooltip");
+	questionTitle.setAttribute("data-placement", "auto");
+	questionTitle.setAttribute("title", "Cliquez pour modifier la question");
+	
 
 	questionTitle.addEventListener("click", function() {
 		modifyElement(questionTitle.id);
@@ -177,14 +180,14 @@ function addQuestion(text) {
 
 	let collapseDiv = createCollapseDiv(questionDiv.id);
 	
-	let list = createAnswerList(questionDiv.id);
-	collapseDiv.appendChild(list);
-	
-	let inputField = createAnswerInput(questionDiv.id);
-	collapseDiv.appendChild(inputField);
+		let list = createAnswerList(questionDiv.id);
+		collapseDiv.appendChild(list);
+		
+		let inputField = createAnswerInput(questionDiv.id);
+		collapseDiv.appendChild(inputField);
 
-	let sendButton = createAnswerButton(questionDiv.id);
-	collapseDiv.appendChild(sendButton);
+		let sendButton = createAnswerButton(questionDiv.id);
+		collapseDiv.appendChild(sendButton);
 	
 	questionDiv.appendChild(collapseDiv);	
 
