@@ -1,5 +1,6 @@
 function userAddQuestion() {
 	let question = document.getElementById("questionText");
+	question.setAttribute("autocomplete", "Ecrivez votre question ici");
 	if(question.value) {
 		changeError(question, "");
 		addQuestion(question.value);
@@ -77,6 +78,7 @@ function createAnswerList(id) {
 
 function createAnswerInput(id) {
 	let answerInput = document.createElement("input");
+	answerInput.setAttribute("autocomplete", "Ecrivez votre proposition ici");
 	answerInput.id = "answerInput_" + id;
 	createErrorField(answerInput, "");
 	return answerInput;
@@ -112,6 +114,9 @@ function createCollapseDiv(id) {
 
 function createAnswerElement(id, text) {
 	let listElem = document.createElement("li");
+	listElem.setAttribute("data-toggle", "tooltip");
+	listElem.setAttribute("data-placement", "auto");
+	listElem.setAttribute("title", "Cliquez pour modifier la proposition");
 	listElem.id = "listAnswers_"+id;
 
 	let elem = document.createElement("input");
