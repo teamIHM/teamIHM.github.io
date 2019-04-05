@@ -5,7 +5,7 @@
 
 body {
 	font-family: "MS Georgia";
-    background-image: url("img/background.jpg");
+    background-image: url("https://alpilaclama.com.tr/wp-content/uploads/2014/01/1605586439-polyagonal-web-design.jpg");
 }
 
 header {
@@ -16,7 +16,6 @@ header {
 	width: 100%;
 	min-height: 7rem;
 	color: #1a74ff;
-	font-family: Impact, Georgia;
 	font-size: 1.7rem;
 	text-align: center;
 	margin: 0;
