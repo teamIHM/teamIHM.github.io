@@ -96,11 +96,18 @@ function createCollapseButton(id) {
 	let button = document.createElement("input");
 	button.type="button";
 	button.setAttribute("data-toggle", "collapse");
-	button.setAttribute("data-target", "#answers_"+id);
+	button.setAttribute("data-target", "#collapse_div_"+id);
 	button.className = "btn btn-success";
 	button.value = "Afficher/Cacher";
-	button.id = "collapse_" + id;
+	button.id = "collapse_button_" + id;
 	return button;
+}
+
+function createCollapseDiv(id) {
+	let container = document.createElement("div");
+	container.className = "collapse_div";
+	container.id = "collapse_div_" + id;
+	return container;
 }
 
 function createAnswerElement(id, text) {
@@ -167,15 +174,19 @@ function addQuestion(text) {
 
 	let collapseButton = createCollapseButton(questionDiv.id);
 	questionDiv.appendChild(collapseButton);
+
+	let collapseDiv = createCollapseDiv(questionDiv.id);
 	
 	let list = createAnswerList(questionDiv.id);
-	questionDiv.appendChild(list);
+	collapseDiv.appendChild(list);
 	
 	let inputField = createAnswerInput(questionDiv.id);
-	questionDiv.appendChild(inputField);
+	collapseDiv.appendChild(inputField);
 
 	let sendButton = createAnswerButton(questionDiv.id);
-	questionDiv.appendChild(sendButton);
+	collapseDiv.appendChild(sendButton);
+	
+	questionDiv.appendChild(collapseDiv);	
 
 	let error = createErrorField(inputField, "");
 	questionDiv.appendChild(error);
