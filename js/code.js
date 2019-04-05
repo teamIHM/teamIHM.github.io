@@ -26,7 +26,7 @@ function removeAnswer(id) {
 
 function createClickableDeleteAnswer(id) {
 	let button = document.createElement("div");
-	button.className="float-right";
+	button.className="float-right btn btn-warning";
 	button.innerHTML = "[Supprimer la réponse]";
 	button.onclick = function() {removeAnswer(id)};
 	return button;
@@ -34,7 +34,7 @@ function createClickableDeleteAnswer(id) {
 
 function createClickableDeleteQuestion(id) {
 	let button = document.createElement("div");
-	button.className="float-right";
+	button.className="float-right btn btn-danger";
 	button.innerHTML = "[Supprimer la question]";
 	button.onclick = function() {removeQuestion(id)};
 	return button;
@@ -112,7 +112,7 @@ function createCollapseDiv(id) {
 
 function createAnswerElement(id, text) {
 	let listElem = document.createElement("li");
-	listElem.className = "listAnswers_"+id;
+	listElem.id = "listAnswers_"+id;
 
 	let elem = document.createElement("input");
 	elem.type="checkbox";
