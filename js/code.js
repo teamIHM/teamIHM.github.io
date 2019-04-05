@@ -92,6 +92,17 @@ function createAnswerButton(id) {
 	return button;
 }
 
+function createCollapseButton(id) {
+	let button = document.createElement("input");
+	button.type="button";
+	button.setAttribute("data-toggle", "collapse");
+	button.setAttribute("data-target", "#answers_"+id);
+	button.className = "btn btn-success";
+	button.value = "Afficher/Cacher";
+	button.id = "collapse_" + id;
+	return button;
+}
+
 function createAnswerElement(id, text) {
 	let listElem = document.createElement("li");
 	listElem.className = "listAnswers_"+id;
@@ -101,7 +112,7 @@ function createAnswerElement(id, text) {
 	elem.className = "checkboxes_"+id;
 	const elemID = $(".checkboxes_"+id).length + 1;
 	elem.id = id + "_checkbox"+elemID;
-	listElem.id = "li_"+elemID;
+	listElem.id = "li_"+elemID+"_"+id;
 	
 	let label = document.createElement("label");
 	label.for=elem.id;
@@ -154,7 +165,9 @@ function addQuestion(text) {
 	let questionTitle = createTitle(questionDiv.id, text);
 	questionDiv.appendChild(questionTitle);
 
-
+	let collapseButton = createCollapseButton(questionDiv.id);
+	questionDiv.appendChild(collapseButton);
+	
 	let list = createAnswerList(questionDiv.id);
 	questionDiv.appendChild(list);
 	
