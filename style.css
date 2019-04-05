@@ -90,3 +90,11 @@ a:active {
 	padding-bottom: 2rem;
 	border: solid 0.1rem #1a74ff;
 }
+
+.info_qcm {
+	font-size: 1.3rem;
+	font-style: italic;
+	margin: 2rem 0rem;
+	padding: 1rem;
+	border: 0.2rem white dashed;
+}
