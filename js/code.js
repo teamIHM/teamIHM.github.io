@@ -202,11 +202,12 @@ function addQuestion(text) {
 
 		let sendButton = createAnswerButton(questionDiv.id);
 		collapseDiv.appendChild(sendButton);
+
+		let error = createErrorField(inputField, "");
+		collapseDiv.appendChild(error);
 	
 	questionDiv.appendChild(collapseDiv);	
 
-	let error = createErrorField(inputField, "");
-	questionDiv.appendChild(error);
 
 	container.appendChild(questionDiv);
 	return questionDiv.id;
