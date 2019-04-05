@@ -36,11 +36,17 @@
 				</nav>
 			</div>
         </header>
-	<main class="p-4">
-		<h2>Accueil</h2>
-		<p>Bienvenue sur notre site de QCM, pour créer un QCM veuillez cliquer sur le bouton "QCM" du menu situé plus haut</p>
-		<p>Si vous souhaitez prendre contact avec nous, veuillez cliquer sur le bouton "Contact"</p>
-	</main>
+        
+        <main class="p-4">
+			<h2>Le QCM</h2>
+			<div id="QCMForm">
+			</div>
+			<hr/>
+			<input type="text" id="questionText"/>
+			<input class="btn-success" type="button" id="addQuestion" value="Ajouter une Question" onclick="userAddQuestion()"/>
+			<span id="error_questionText" style="color:red;"></span>
+        </main>
+        
         <footer class="row">
         	<p>
         		ARNOULD Corentin - 11710611<br>
@@ -49,3 +55,6 @@
         </footer>
     </body>
 </html>
+	<script type="text/javascript">
+		init();
+	</script>

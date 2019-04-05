@@ -1,3 +1,5 @@
+var questionCount = 0;
+
 function userAddQuestion() {
 	let question = document.getElementById("questionText");
 	question.setAttribute("autocomplete", "Ecrivez votre question ici");
@@ -62,10 +64,16 @@ function userAddAnswer(id) {
 }
 
 function createQuestionDiv() {
-	const id = $('.question').length + 1;
+	questionCount++;
+	const id = questionCount;
 	let newQuestion = document.createElement("div");
 	newQuestion.className = "question";
 	newQuestion.id = "question"+id;
+	let newHiddenField = document.createElement("input");
+	newHiddenField.type="hidden";
+	newHiddenField.id = newQuestion.id + "_answerCount";
+	newHiddenField.value = "1";
+	newQuestion.appendChild(newHiddenField);
 	return newQuestion;
 }
 
@@ -122,7 +130,8 @@ function createAnswerElement(id, text) {
 	let elem = document.createElement("input");
 	elem.type="checkbox";
 	elem.className = "checkboxes_"+id;
-	const elemID = $(".checkboxes_"+id).length + 1;
+	const elemID = document.getElementById(id + "_answerCount").value;
+	document.getElementById(id + "_answerCount").value++;
 	elem.id = id + "_checkbox"+elemID;
 	listElem.id = "li_"+elemID+"_"+id;
 	
